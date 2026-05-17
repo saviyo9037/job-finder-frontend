@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -23,7 +23,7 @@ export default function Layout() {
   };
 
   // Close sidebar when route changes on mobile
-  useState(() => {
+  useEffect(() => {
     setSidebarOpen(false);
   }, [location.pathname]);
 
