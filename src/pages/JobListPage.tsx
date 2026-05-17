@@ -77,27 +77,27 @@ export default function JobListPage({ title, filter, autoFetch }: JobListPagePro
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">{title}</h1>
           <p className="text-sm text-slate-500 mt-1">
             UI/UX Designer · MERN · React · Node.js · Full Stack · Frontend · Backend · Kerala · Bangalore · Chennai · Hyderabad · Tamil Nadu · Remote · India
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setShowAddJob(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 shadow-sm"
-          >
-            + Add Job
-          </button>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
           <input
             type="search"
             placeholder="Search jobs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-64 border border-slate-200 rounded-lg px-3 py-2 text-sm"
+            className="w-full sm:w-64 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-shadow"
           />
+          <button
+            onClick={() => setShowAddJob(true)}
+            className="px-4 py-2 bg-brand-600 text-white rounded-lg text-sm font-medium hover:bg-brand-700 shadow-sm transition-colors whitespace-nowrap"
+          >
+            + Add Job
+          </button>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ export default function JobListPage({ title, filter, autoFetch }: JobListPagePro
         <p className="text-slate-500">Loading jobs...</p>
       ) : jobs.length === 0 ? (
         <p className="text-slate-500">
-          No jobs match your filters yet. Go to Dashboard and click <strong>Fetch Now</strong> (takes ~30–60 sec with Jooble).
+          No jobs match your filters yet. Go to Dashboard and click <strong>Fetch Now</strong>.
         </p>
       ) : (
         <div className="space-y-4">
